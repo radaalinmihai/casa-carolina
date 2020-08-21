@@ -38,6 +38,7 @@ export const NavTracker = styled.div`
   position: absolute;
   bottom: -2px;
   left: 1px;
+  transition: all 250ms;
 `;
 
 export const NavWrapper = styled.div`

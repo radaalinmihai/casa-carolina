@@ -1,12 +1,6 @@
 import React from "react";
 import {
-  Navbar,
-  NavItem,
   GlobalStyle,
-  Details,
-  PhoneNumber,
-  NavTracker,
-  NavWrapper,
   Content,
   Slider,
   SliderWrapper,
@@ -22,6 +16,8 @@ import {
 import ArrowRightIcon from "./assets/icons/mdi_chevron_right.svg";
 import ArrowLeftIcon from "./assets/icons/mdi_chevron_left.svg";
 import GoogleMap from "./components/GoogleMap";
+import Media from 'react-media';
+import NavbarWeb from "./components/NavbarWeb";
 
 export default class App extends React.PureComponent {
   state = {
@@ -42,16 +38,25 @@ export default class App extends React.PureComponent {
     });
     this.changeImageInterval = setInterval(this.nextImage, 5000);
     window.onscroll = (e) => {
-      console.log(
-        window.scrollY,
-        this.getScrollPositionElement(this.homeRef.current),
-        this.getScrollPositionElement(this.aboutRef.current),
-        this.getScrollPositionElement(this.locationRef.current)
-      );
+      if (this.isInView(this.getScrollPositionElement(this.homeRef.current)))
+        this.moveNavTracker(1);
+      else if (
+        this.isInView(this.getScrollPositionElement(this.locationRef.current))
+      )
+        this.moveNavTracker(170);
+      else this.moveNavTracker(84);
     };
   };
-  getScrollPositionElement = (element) => element.getBoundingClientRect().y || element.getBoundingClientRect().top;
-  whoIsInView = (windowY, elementY) => {};
+  getScrollPositionElement = (element) => ({
+    top: element.getBoundingClientRect().top,
+    bottom: element.getBoundingClientRect().bottom,
+  });
+  moveNavTracker = (howMuch) =>
+    (this.navTracker.current.style.left = howMuch + "px");
+  isInView = (element) =>
+    element.top >= 0 &&
+    element.bottom <=
+      (window.innerHeight || document.documentElement.clientHeight);
   componentWillUnmount = () => clearInterval(this.changeImageInterval);
   nextImage = () => {
     let sliderImages = [...this.state.sliderImages];
@@ -72,22 +77,13 @@ export default class App extends React.PureComponent {
   homeRef = React.createRef();
   aboutRef = React.createRef();
   locationRef = React.createRef();
+  navTracker = React.createRef();
   render() {
     const { headerHeight, sliderImages } = this.state;
     return (
       <>
         <GlobalStyle />
-        <Navbar ref={this.header}>
-          <NavWrapper>
-            <NavItem>Acasa</NavItem>
-            <NavItem>Despre</NavItem>
-            <NavItem>Locatie</NavItem>
-            <NavTracker />
-          </NavWrapper>
-          <Details>
-            <PhoneNumber>Pentru detalii: 0742284253</PhoneNumber>
-          </Details>
-        </Navbar>
+        <NavbarWeb navTracker={this.navTracker} />
         <Content
           ref={this.homeRef}
           containsSlider={headerHeight !== 0}
