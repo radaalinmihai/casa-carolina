@@ -25,6 +25,9 @@ export default class NavbarMobile extends PureComponent {
     });
     this.toggleDropdown();
   };
+  componentDidMount = () => {
+    window.removeEventListener("scroll", this.props.removeScrollTrack);
+  };
   goHome = () => this.navigateTo(this.props.home);
   goAbout = () => this.navigateTo(this.props.about);
   goLocation = () => this.navigateTo(this.props.location);

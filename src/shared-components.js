@@ -30,6 +30,10 @@ export const Details = styled.div`
 
 export const PhoneNumber = styled(NavItem)`
   cursor: auto;
+  @media (max-width: 600px) {
+    margin-right: 0;
+    font-size: 17px;
+  }
 `;
 
 export const NavTracker = styled.div`
@@ -55,6 +59,7 @@ export const MobileNavFixer = styled.div`
   padding: 20px;
   padding-left: 10%;
   font-size: 15px;
+  align-items: center;
 `;
 
 export const Slider = styled.div`
@@ -93,6 +98,10 @@ export const Arrow = styled.img`
   cursor: pointer;
   top: 50%;
   transform: translate(0, -50%);
+  @media (max-width: 600px) {
+   width: 70px;
+   height: 70px; 
+  }
 `;
 
 export const ArrowRight = styled(Arrow)`
@@ -145,18 +154,27 @@ export const Content = styled.div`
 export const ContentWrapper = styled.div`
   padding: 100px 10%;
   position: relative;
+  @media (max-width: 600px) {
+    padding: 50px 10%;
+  }
 `;
 
 export const Title = styled.h2`
   color: white;
   font-size: 48px;
   font-family: Roboto, sans-serif;
+  @media (max-width: 600px) {
+    font-size: 24px;
+  }
 `;
 
 export const Body = styled.section`
   font-family: Roboto, sans-serif;
   color: white;
   font-size: 18px;
+  @media (max-width: 600px) {
+    font-size: 14px;
+  }
 `;
 
 export const List = styled.ul`

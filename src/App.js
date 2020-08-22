@@ -35,8 +35,6 @@ export default class App extends React.PureComponent {
       require("./assets/media/image_9.jpeg"),
       require("./assets/media/image_10.jpeg"),
       require("./assets/media/image_11.jpeg"),
-      require("./assets/media/image_12.jpeg"),
-      require("./assets/media/image_13.jpeg"),
     ],
   };
   getHeaderHeight = () => this.header.current.clientHeight;
@@ -46,16 +44,16 @@ export default class App extends React.PureComponent {
       headerHeight: this.getHeaderHeight(),
     });
     this.changeImageInterval = setInterval(this.nextImage, 5000);
-    if (this.navTracker.current !== null)
-      window.onscroll = () => {
-        if (this.isInView(this.getScrollPositionElement(this.homeRef.current)))
-          this.moveNavTracker(1);
-        else if (
-          this.isInView(this.getScrollPositionElement(this.locationRef.current))
-        )
-          this.moveNavTracker(170);
-        else this.moveNavTracker(84);
-      };
+    if (this.navTracker.current !== null) window.onscroll = this.trackScroll;
+  };
+  trackScroll = () => {
+    if (this.isInView(this.getScrollPositionElement(this.homeRef.current)))
+      this.moveNavTracker(1);
+    else if (
+      this.isInView(this.getScrollPositionElement(this.locationRef.current))
+    )
+      this.moveNavTracker(170);
+    else this.moveNavTracker(84);
   };
   getScrollPositionElement = (element) => ({
     top: element.getBoundingClientRect().top,
@@ -120,6 +118,7 @@ export default class App extends React.PureComponent {
                 about={this.aboutRef.current}
                 location={this.locationRef.current}
                 header={this.header}
+                removeScrollTrack={this.trackScroll}
               />
             )
           }
