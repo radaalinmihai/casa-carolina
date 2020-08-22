@@ -16,8 +16,9 @@ import {
 import ArrowRightIcon from "./assets/icons/mdi_chevron_right.svg";
 import ArrowLeftIcon from "./assets/icons/mdi_chevron_left.svg";
 import GoogleMap from "./components/GoogleMap";
-import Media from 'react-media';
+import Media from "react-media";
 import NavbarWeb from "./components/NavbarWeb";
+import NavbarMobile from "./components/NavbarMobile";
 
 export default class App extends React.PureComponent {
   state = {
@@ -29,7 +30,6 @@ export default class App extends React.PureComponent {
       require("./assets/media/image_4.jpeg"),
     ],
   };
-  header = React.createRef();
   getHeaderHeight = () => this.header.current.clientHeight;
   changeImageInterval = null;
   componentDidMount = () => {
@@ -37,15 +37,16 @@ export default class App extends React.PureComponent {
       headerHeight: this.getHeaderHeight(),
     });
     this.changeImageInterval = setInterval(this.nextImage, 5000);
-    window.onscroll = (e) => {
-      if (this.isInView(this.getScrollPositionElement(this.homeRef.current)))
-        this.moveNavTracker(1);
-      else if (
-        this.isInView(this.getScrollPositionElement(this.locationRef.current))
-      )
-        this.moveNavTracker(170);
-      else this.moveNavTracker(84);
-    };
+    if (this.navTracker.current !== null)
+      window.onscroll = () => {
+        if (this.isInView(this.getScrollPositionElement(this.homeRef.current)))
+          this.moveNavTracker(1);
+        else if (
+          this.isInView(this.getScrollPositionElement(this.locationRef.current))
+        )
+          this.moveNavTracker(170);
+        else this.moveNavTracker(84);
+      };
   };
   getScrollPositionElement = (element) => ({
     top: element.getBoundingClientRect().top,
@@ -74,6 +75,7 @@ export default class App extends React.PureComponent {
       sliderImages,
     });
   };
+  header = React.createRef();
   homeRef = React.createRef();
   aboutRef = React.createRef();
   locationRef = React.createRef();
@@ -83,12 +85,41 @@ export default class App extends React.PureComponent {
     return (
       <>
         <GlobalStyle />
-        <NavbarWeb navTracker={this.navTracker} />
+        <Media
+          queries={{
+            mobile: {
+              maxWidth: 600,
+            },
+            web: {
+              minWidth: 600,
+            },
+          }}
+        >
+          {(matches) =>
+            matches.web ? (
+              <NavbarWeb
+                home={this.homeRef.current}
+                about={this.aboutRef.current}
+                location={this.locationRef.current}
+                header={this.header}
+                navTracker={this.navTracker}
+              />
+            ) : (
+              <NavbarMobile
+                headerHeight={this.state.headerHeight}
+                home={this.homeRef.current}
+                about={this.aboutRef.current}
+                location={this.locationRef.current}
+                header={this.header}
+              />
+            )
+          }
+        </Media>
         <Content
           ref={this.homeRef}
           containsSlider={headerHeight !== 0}
           headerHeight={headerHeight}
-          last
+          noBorderBottom
         >
           <Slider>
             <SliderWrapper>
@@ -121,7 +152,7 @@ export default class App extends React.PureComponent {
             </Body>
           </ContentWrapper>
         </Content>
-        <Content ref={this.locationRef} last>
+        <Content ref={this.locationRef} noBorderBottom>
           <ContentWrapper>
             <Title>Locatie</Title>
             <Body>

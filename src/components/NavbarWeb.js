@@ -9,20 +9,22 @@ import {
 } from "../shared-components";
 
 export default class NavbarWeb extends PureComponent {
+  navigateTo = (where) => {
+    where.scrollIntoView({
+      behavior: "smooth",
+    });
+  };
+  goHome = () => this.navigateTo(this.props.home);
+  goAbout = () => this.navigateTo(this.props.about);
+  goLocation = () => this.navigateTo(this.props.location);
   render() {
     return (
-      <Navbar ref={this.props.navTracker}>
+      <Navbar ref={this.props.header}>
         <NavWrapper>
-          <NavItem onClick={() => console.log("navigate to home")}>
-            Acasa
-          </NavItem>
-          <NavItem onClick={() => console.log("navigate to about")}>
-            Despre
-          </NavItem>
-          <NavItem onClick={() => console.log("navigate to location")}>
-            Locatie
-          </NavItem>
-          <NavTracker ref={this.navTracker} />
+          <NavItem onClick={this.goHome}>Acasa</NavItem>
+          <NavItem onClick={this.goAbout}>Despre</NavItem>
+          <NavItem onClick={this.goLocation}>Locatie</NavItem>
+          <NavTracker ref={this.props.navTracker} />
         </NavWrapper>
         <Details>
           <PhoneNumber>Pentru detalii: 0742284253</PhoneNumber>

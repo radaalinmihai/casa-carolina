@@ -1,7 +1,6 @@
 import styled, { createGlobalStyle } from "styled-components";
-import { slideLeft } from "./animations";
 
-export const Navbar = styled.nav`
+export const Navbar = styled.div`
   background-color: #404040;
   padding: 20px;
   padding-left: 10%;
@@ -11,6 +10,8 @@ export const Navbar = styled.nav`
   width: 100%;
   top: 0;
   z-index: 10;
+  align-items: center;
+  ${({ noPadding }) => noPadding && `padding: 0;`}
 `;
 
 export const NavItem = styled.span`
@@ -43,6 +44,17 @@ export const NavTracker = styled.div`
 
 export const NavWrapper = styled.div`
   position: relative;
+`;
+
+export const MobileNavFixer = styled.div`
+  display: flex;
+  flex-direction: row;
+  background-color: #404040;
+  width: 100%;
+  justify-content: space-between;
+  padding: 20px;
+  padding-left: 10%;
+  font-size: 15px;
 `;
 
 export const Slider = styled.div`
@@ -91,6 +103,30 @@ export const ArrowLeft = styled(Arrow)`
   left: 0;
 `;
 
+export const MobileMenuIcon = styled.img`
+  width: 27px;
+  height: 27px;
+`;
+
+export const DropdownMobileMenu = styled.div`
+  position: absolute;
+  ${({ headerHeight, show }) =>
+    headerHeight &&
+    (show
+      ? `bottom: calc(-100% - ${headerHeight}px + 21px);`
+      : `bottom: ${headerHeight}px;`)}
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  background-color: #414042;
+  width: 100%;
+  border-top: 1px solid #58595b;
+  padding: 20px;
+  padding-left: 10%;
+  transition: all 500ms;
+  z-index: -20;
+`;
+
 export const Content = styled.div`
   height: 100vh;
   background-color: #2d2d2d;
@@ -103,7 +139,7 @@ export const Content = styled.div`
     margin-top: ${headerHeight}px;
   `}
   border-bottom: 1px solid #58595B;
-  ${({ last }) => last && `border-bottom: 0px`}
+  ${({ noBorderBottom }) => noBorderBottom && `border-bottom: 0px`}
 `;
 
 export const ContentWrapper = styled.div`
@@ -131,13 +167,13 @@ export const ListItem = styled.li`
   position: relative;
   margin-bottom: 30px;
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     width: 44px;
     height: 44px;
     left: -44px;
     bottom: -5px;
-    background-image: url(${require('./assets/icons/mdi_check.svg')});
+    background-image: url(${require("./assets/icons/mdi_check.svg")});
   }
 `;
 
