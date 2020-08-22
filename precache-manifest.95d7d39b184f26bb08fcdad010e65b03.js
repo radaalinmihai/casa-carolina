@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "5f417ffb4af24a6dc2762211b0b23eed",
+    "revision": "66cc4df3684f0884f2106ed9892a587b",
     "url": "/vila-carolina/index.html"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/vila-carolina/static/js/2.39a3b03f.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "e0c8f56106380687fc14",
-    "url": "/vila-carolina/static/js/main.ce9c0658.chunk.js"
+    "revision": "6b7efc8143806db4a4da",
+    "url": "/vila-carolina/static/js/main.9cf086ed.chunk.js"
   },
   {
     "revision": "7aaec29e733aceb9fece",
@@ -24,48 +24,40 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/vila-carolina/static/media/image_1.fadfebf9.jpeg"
   },
   {
-    "revision": "a3ad5fad06b1aae439d9f8665e81cca3",
-    "url": "/vila-carolina/static/media/image_10.a3ad5fad.jpeg"
-  },
-  {
-    "revision": "2a4c8cef02393d21de2039965edb2bbe",
-    "url": "/vila-carolina/static/media/image_11.2a4c8cef.jpeg"
-  },
-  {
-    "revision": "8f2eda583e5801e35b256cfde629e9dc",
-    "url": "/vila-carolina/static/media/image_12.8f2eda58.jpeg"
-  },
-  {
-    "revision": "fadfebf90c486e55735571f244d4ca95",
-    "url": "/vila-carolina/static/media/image_13.fadfebf9.jpeg"
-  },
-  {
     "revision": "88d591a86128508beb650799d1b220b0",
-    "url": "/vila-carolina/static/media/image_2.88d591a8.jpeg"
-  },
-  {
-    "revision": "10cf59422e8696be7fff453e844afbca",
-    "url": "/vila-carolina/static/media/image_3.10cf5942.jpeg"
-  },
-  {
-    "revision": "b97bed33be95df011bfa965da3ac5418",
-    "url": "/vila-carolina/static/media/image_4.b97bed33.jpeg"
-  },
-  {
-    "revision": "2f127b8fdbc25acb3766148c414a4660",
-    "url": "/vila-carolina/static/media/image_5.2f127b8f.jpeg"
-  },
-  {
-    "revision": "5942debd0568e2943f4a10b0a4041a32",
-    "url": "/vila-carolina/static/media/image_6.5942debd.jpeg"
+    "url": "/vila-carolina/static/media/image_10.88d591a8.jpeg"
   },
   {
     "revision": "7b13cde890de62600a4f97214c61097a",
-    "url": "/vila-carolina/static/media/image_7.7b13cde8.jpeg"
+    "url": "/vila-carolina/static/media/image_11.7b13cde8.jpeg"
+  },
+  {
+    "revision": "2a4c8cef02393d21de2039965edb2bbe",
+    "url": "/vila-carolina/static/media/image_2.2a4c8cef.jpeg"
   },
   {
     "revision": "79e5a6ab400ce1bd339709212269dd81",
-    "url": "/vila-carolina/static/media/image_8.79e5a6ab.jpeg"
+    "url": "/vila-carolina/static/media/image_3.79e5a6ab.jpeg"
+  },
+  {
+    "revision": "a3ad5fad06b1aae439d9f8665e81cca3",
+    "url": "/vila-carolina/static/media/image_4.a3ad5fad.jpeg"
+  },
+  {
+    "revision": "10cf59422e8696be7fff453e844afbca",
+    "url": "/vila-carolina/static/media/image_5.10cf5942.jpeg"
+  },
+  {
+    "revision": "b97bed33be95df011bfa965da3ac5418",
+    "url": "/vila-carolina/static/media/image_6.b97bed33.jpeg"
+  },
+  {
+    "revision": "2f127b8fdbc25acb3766148c414a4660",
+    "url": "/vila-carolina/static/media/image_7.2f127b8f.jpeg"
+  },
+  {
+    "revision": "8f2eda583e5801e35b256cfde629e9dc",
+    "url": "/vila-carolina/static/media/image_8.8f2eda58.jpeg"
   },
   {
     "revision": "4b9b1949f0719db63b5d8ae8a4a3421a",
