@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/vila-carolina/precache-manifest.fda1155e14d0833e86144cf1ac4f3a93.js"
+  "/vila-carolina/precache-manifest.6919e0e924fdad74e0caf2774d0fba58.js"
 );
 
 self.addEventListener('message', (event) => {
