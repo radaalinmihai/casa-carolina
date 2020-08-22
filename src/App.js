@@ -24,10 +24,19 @@ export default class App extends React.PureComponent {
   state = {
     headerHeight: 0,
     sliderImages: [
-      require("./assets/media/image_1.jpg"),
-      require("./assets/media/image_2.jpg"),
-      require("./assets/media/image_3.jpg"),
+      require("./assets/media/image_1.jpeg"),
+      require("./assets/media/image_2.jpeg"),
+      require("./assets/media/image_3.jpeg"),
       require("./assets/media/image_4.jpeg"),
+      require("./assets/media/image_5.jpeg"),
+      require("./assets/media/image_6.jpeg"),
+      require("./assets/media/image_7.jpeg"),
+      require("./assets/media/image_8.jpeg"),
+      require("./assets/media/image_9.jpeg"),
+      require("./assets/media/image_10.jpeg"),
+      require("./assets/media/image_11.jpeg"),
+      require("./assets/media/image_12.jpeg"),
+      require("./assets/media/image_13.jpeg"),
     ],
   };
   getHeaderHeight = () => this.header.current.clientHeight;
