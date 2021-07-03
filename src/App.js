@@ -144,7 +144,7 @@ export default class App extends React.PureComponent {
             <Title>Despre</Title>
             <Body>
               <p>
-                Vila Carolina este locul ideal pentru a-ti petrece vacanta sau
+                Casa Carolina este locul ideal pentru a-ti petrece vacanta sau
                 sejurul la mare, aceasta fiind dotata cu:
               </p>
               <List>
